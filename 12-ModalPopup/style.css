@@ -1,0 +1,182 @@
+/* Complete Outer div */
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    height: 80vh;
+    width: fit-content;
+    margin: 3% auto;
+    padding: 20px 60px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.image img{
+    width: 360px;
+}
+
+
+/* ICONS  */
+
+.icons{
+    display: flex;
+    width: 360px;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+}
+
+.icons i{
+    font-size: 30px;
+    padding: 15px 26px;
+    color: #fff;
+    position: relative;
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.icons .icon {
+    position: relative;
+}
+
+/* INDICATOR */
+
+.indicator{
+    top: -10px;
+    position: absolute;
+    width: 70px;
+    height: 55px;
+    background: #fff;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border: 6px solid #fff;
+    display: none;
+    transition: transform 1s ease-in-out;
+}
+
+
+/* These properties applicable on hover only */
+
+.icon:hover .indicator {
+    display: block;
+    /* transform: translateX(-100%); */
+}
+    
+.icon:hover i{
+    transform: translateY(-15px);
+}
+
+
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -24.75px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 4px -6px 0 2px #fff;
+}
+
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: -25.75px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -4px -6px 0 2px #fff;
+}
+
+.indicator span{
+    position: absolute;
+    bottom: 0.1px;
+    width: 65px;
+    height: 65px;
+    left: -1px;
+    border: 4px solid rgb(50, 205, 50);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: scale(0.85);
+    background: rgb(50, 205, 50);
+}
+    
+/* rgb(56, 240, 56); */
+/* Content - Text and Rating */
+.content{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Content */
+.product-info{
+    flex-basis: 70%;
+}
+
+.product-info p{
+    line-height: 5px;
+}
+
+/* Rating */
+.checked{
+    color: orange;
+}
+
+
+/* POP UPs */
+
+.popup .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 1;
+    display: none;
+}
+  
+.popup .content{
+    position: absolute;
+    top: 33.5%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 10px;
+    background: rgb(50, 205, 50);
+    width: 360px;
+    height: 330px;
+    z-index: 2;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.popup .content .popup-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+  
+.popup .content .popup-icon i{
+    font-size: 270px;
+    color: #fff;
+}
+  
+/* Setting the display to block from none */
+.popup.active .overlay {
+    display: block;
+}
+  
+.popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}

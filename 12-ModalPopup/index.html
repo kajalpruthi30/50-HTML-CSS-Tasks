@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1a2901e29d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="apple.jpeg">
+        </div>
+        <div class="icons">
+            <div class="icon" onclick="togglePopup1()">
+                <i class="fa-regular fa-heart"></i>
+                <div class="indicator"><span></span></div>
+            </div>
+            <div class="icon" onclick="togglePopup2()">
+                <i class="fa-regular fa-comment"></i>
+                <div class="indicator"><span></span></div>
+            </div>
+            <div class="icon" onclick="togglePopup3()">
+                <i class="fa-regular fa-message"></i>
+                <div class="indicator"><span></span></div>
+            </div>
+        </div>
+
+       <div class="content">
+        <div class="product-info">
+            <p>Apple</p>
+            <p>1kg</p>
+            <p>₹110</p>
+       </div>
+       <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+       </div>
+    </div>
+
+    <!-- POP UP -->
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="popup-icon">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-2">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="popup-icon">
+                <i class="fa-regular fa-comment"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-3">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="popup-icon">
+                <i class="fa-regular fa-message"></i>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function togglePopup1(){
+        document.getElementById("popup-1").classList.toggle("active");
+    }
+    function togglePopup2(){
+        document.getElementById("popup-2").classList.toggle("active");
+    }
+    function togglePopup3(){
+        document.getElementById("popup-3").classList.toggle("active");
+    }
+
+    
+    // Close the popup when clicking outside
+    document.querySelectorAll('.overlay').forEach(item => {
+        item.addEventListener('click', event => {
+            if (event.target.classList.contains('overlay')) {
+                document.querySelectorAll('.popup').forEach(popup => {
+                    popup.classList.remove('active');
+                });
+            }
+        });
+    });
+</script>
+</html>
